@@ -36,9 +36,9 @@ func Domain(s string) string {
 // service.*.skydns.local.  If a wildcard is found the returned bool is true.
 func PathWithWildcard(s, prefix string) (string, bool) {
 	l := dns.SplitDomainName(s)
-	for i, j := 0, len(l)-1; i < j; i, j = i+1, j-1 {
-		l[i], l[j] = l[j], l[i]
-	}
+	//for i, j := 0, len(l)-1; i < j; i, j = i+1, j-1 {
+		//l[i], l[j] = l[j], l[i]
+	//}
 	for i, k := range l {
 		if k == "*" || k == "any" {
 			return path.Join(append([]string{"/" + prefix + "/"}, l[:i]...)...), true
